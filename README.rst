@@ -1,5 +1,5 @@
 nix-sitemap-generator
-=========
+=====================
 
 Sitemap generator library for python. Fork from *https://github.com/Haikson/sitemap-generator*.
 
@@ -13,13 +13,13 @@ Usage
 -----
 
 1. Import `crawler` from `pysitemap`
-~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ::
 
     from pysitemap import crawler
 
 2. Call `crawler()`
-~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
 ::
 
     crawler(
@@ -50,7 +50,3 @@ Example
             root_url, out_file='debug/sitemap.xml', exclude_urls=[".pdf", ".jpg", ".zip"],
             http_request_options={"ssl": False}, parser=Parser
         )
-
-Changes
----------
-.. include:: CHANGELOG.rst

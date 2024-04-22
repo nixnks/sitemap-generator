@@ -10,6 +10,8 @@ def get_long_description():
     long_description = ""
     with open("README.rst", "r") as fh:
         long_description = fh.read()
+    with open("CHANGELOG.rst", "r") as fh:
+        long_description += "\n\n" + fh.read()
     return long_description
 
 
