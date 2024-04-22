@@ -33,7 +33,8 @@ def crawler(
 
     try:
         loop.add_signal_handler(signal.SIGINT, loop.stop)
-    except RuntimeError:
+    except (RuntimeError, ValueError):
+        '''Except ValueError: signal only works in main thread'''
         pass
     logger.info('todo_queue:', len(c.todo_queue))
     logger.info('busy:', len(c.busy))
