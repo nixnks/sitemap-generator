@@ -1,27 +1,34 @@
-pysitemap
+nix-sitemap-generator
 =========
 
-Sitemap generator
+Sitemap generator library for python. Fork from *https://github.com/Haikson/sitemap-generator*.
 
-installing
+Installing
 ----------
-
 ::
 
-    pip install sitemap-generator
+    pip install nix-sitemap-generator
 
-requirements
-------------
+Usage
+-----
 
+1. Import `crawler` from `pysitemap`
+~~~~~~~~~~~~~~~~~~~~~
 ::
 
-    asyncio
-    aiofile
-    aiohttp
+    from pysitemap import crawler
 
-example
+2. Call `crawler()`
+~~~~~~~~~~~~~~~~~~~~~
+::
+
+    crawler(
+        'https//site.com', out_file='debug/sitemap.xml', exclude_urls=[".pdf", ".jpg", ".zip"],
+        http_request_options={"ssl": False}, parser=Parser
+    )
+
+Example
 -------
-
 ::
 
     import sys
@@ -44,17 +51,6 @@ example
             http_request_options={"ssl": False}, parser=Parser
         )
 
-TODO
------
-
--  big sites with count of pages more then 100K will use more then 100MB
-   memory. Move queue and done lists into database. Write Queue and Done
-   backend classes based on
--  Lists
--  SQLite database
--  Redis
--  Write api for extending by user backends
-
-changelog
+Changes
 ---------
-
+.. include:: CHANGELOG.rst
