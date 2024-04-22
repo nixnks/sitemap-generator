@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, Table, exists
 from sqlalchemy.orm import relationship
 import hashlib
-from db import Model, db_endine, session
+from db import Model, db_engine, session
 import uuid
 from validators import domain as domain_validator
 
@@ -76,4 +76,4 @@ class User(Model):
         return "<User(name='%s', fullname='%s', password='%s')>" % (self.name, self.fullname, self.password)
 
 
-Model.metadata.create_all(db_endine)
+Model.metadata.create_all(db_engine)
