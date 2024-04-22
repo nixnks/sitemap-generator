@@ -5,13 +5,13 @@ from sqlalchemy.sql import ClauseElement
 
 DB_URI = 'sqlite:///stuff.db'
 
-db_endine = create_engine(DB_URI)
+db_engine = create_engine(DB_URI)
 
 session = scoped_session(
     sessionmaker(
         autocommit=False,
         autoflush=False,
-        bind=db_endine
+        bind=db_engine
     )
 )
 
