@@ -1,12 +1,11 @@
-from abc import ABC, abstractclassmethod
 from typing import List
+from abc import ABC, abstractmethod
 
 
 class BaseParser(ABC):
 
-    @abstractclassmethod
-    def parse(cls, html_string) -> List[str]:
+    @abstractmethod
+    def parse(self, html_string) -> List[str]:
         """
         Base parse method
         """
-        
