@@ -28,7 +28,7 @@ def get_requirements():
 
 
 setup(
-    name="sitemap-generator",
+    name="nix-sitemap-generator",
     version=VERSION,
     packages=find_packages(exclude=EXCLUDE_FROM_PACKAGES),
     include_package_data=True,
