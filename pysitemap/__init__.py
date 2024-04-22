@@ -1,7 +1,9 @@
 import asyncio
 import signal
 import logging
-from pysitemap.base_crawler import Crawler
+from typing import List
+
+from pysitemap.web_crawler import WebCrawler
 
 logger = logging.getLogger(__name__)
 
@@ -11,7 +13,7 @@ def crawler(
         out_file: str = None,
         out_file_format: str = 'xml',
         max_workers=64,
-        exclude_urls=None,
+        exclude_urls: List[str] = None,
         http_request_options=None,
         parser=None,
         verbose: bool = False
@@ -24,18 +26,18 @@ def crawler(
 
     def _run_crawler():
         loop = asyncio.get_event_loop()
-        c = Crawler(
-            root_url, out_file=out_file, out_format=out_file_format, maxtasks=max_workers,
+        c = WebCrawler(
+            root_url, output_file=out_file, output_format=out_file_format, max_tasks=max_workers,
             http_request_options=http_request_options
         )
 
         if parser is not None:
-            c.set_parser(parser_class=parser)
+            c.set_parser(parser)
 
         if exclude_urls:
-            c.set_exclude_url(urls_list=exclude_urls)
+            c.set_excluded_urls(exclude_urls)
 
-        loop.run_until_complete(c.run())
+        loop.run_until_complete(c.start_crawling())
 
         try:
             loop.add_signal_handler(signal.SIGINT, loop.stop)
@@ -43,10 +45,11 @@ def crawler(
             '''Except ValueError: signal only works in main thread'''
             pass
 
-        logger.debug(f'Queue: {len(c.todo_queue)}\n'
-                     f'Busy: {len(c.busy)}\n'
-                     f'Done: {len(c.done)}\n'
-                     f'Tasks: {len(c.tasks)}\n')
+        logger.debug(f'Current status:\n'
+                     f'  Queue length: {len(c.task_queue)}\n'
+                     f'  In progress tasks: {len(c.in_progress)}\n'
+                     f'  Completed tasks: {len(c.completed)}\n'
+                     f'  Total tasks: {len(c.tasks)}\n')
 
     _setup_logger()
     _run_crawler()
