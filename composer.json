@@ -1,20 +1,29 @@
 {
-    "name": "haikson/sitemap-generator",
-    "type": "library",
-    "description": "Sitemap crawler and generator class",
-    "keywords": ["sitemap","crawler"],
-    "homepage": "https://github.com/Haikson/sitemap-generator",
-    "license": "Apache License",
-    "authors": [
-        {
-            "name": "Kamo Petrosyan",
-            "email": "kamo@haikson.com",
-            "homepage": "http://www.haikson.com",
-            "role": "Developer"
-        }
-    ],
-    "require": {
-        "beautifulsoup4": ">=4.4.0",
-        "mechanize": ">=0.2.5"
+  "name": "nikusunix/sitemap-generator",
+  "type": "library",
+  "description": "Sitemap crawler and generator class",
+  "keywords": [
+    "sitemap",
+    "crawler"
+  ],
+  "homepage": "https://github.com/nixnks/sitemap-generator",
+  "license": "Apache License",
+  "authors": [
+    {
+      "name": "Kamo Petrosyan",
+      "email": "kamo@haikson.com",
+      "homepage": "http://www.haikson.com",
+      "role": "Developer"
+    },
+    {
+      "name": "Nix ツ",
+      "email": "nikusunix@gmail.com",
+      "homepage": "http://t.me/noisenix",
+      "role": "Developer"
     }
+  ],
+  "require": {
+    "beautifulsoup4": ">=4.4.0",
+    "mechanize": ">=0.2.5"
+  }
 }
